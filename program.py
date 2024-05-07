@@ -14,6 +14,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 file_path = ""
 
 def add_to_excel():
+    status_label.config(text="Adding data to Excel file...", fg="blue")
     global file_path
     url = url_entry.get()
 
@@ -31,8 +32,6 @@ def add_to_excel():
     driver.get(url)
 
     try:
-        status_label.config(text="Adding data to Excel file...", fg="blue")
-
         # Wait for the details button to be clickable with a longer timeout
         btn = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//div[contains(@class, "MuiButtonBase-root")]')))
         ActionChains(driver).move_to_element(btn).perform()
@@ -51,9 +50,7 @@ def add_to_excel():
 
         # if a path is not provided than create a new file
         if file_path == "":
-            file_path = filedialog.asksaveasfilename(defaultextension=".xlsx", filetypes=[("Excel files", "*.xlsx")])
-            if file_path:
-                file_label.config(text="File: " + file_path)
+            create_new_file()
 
         existing_data = pd.DataFrame()
         if file_path != "":
@@ -81,7 +78,17 @@ def choose_file():
     new_file_path = filedialog.askopenfilename(filetypes=[("Excel files", "*.xlsx")])
     if new_file_path:
         file_path = new_file_path
+        add_button.config(text="Add Data to file")
     file_label.config(text="File: " + file_path)
+
+def create_new_file():
+    global file_path
+    new_file_path = filedialog.asksaveasfilename(defaultextension=".xlsx", filetypes=[("Excel files", "*.xlsx")])
+    if new_file_path:
+        file_path = new_file_path
+        file_label.config(text="File: " + file_path)
+        add_button.config(text="Add Data to file")
+
 
 def clear_status(event):
     status_label.config(text="")
@@ -97,11 +104,15 @@ root = tk.Tk()
 root.title("Web2Sheet")
 root.iconbitmap('icon.ico')
 
-# File selection
+# Choose file button
 file_label = tk.Label(root, text="Choose Excel file:", padx=10, pady=5)
 file_label.grid(row=0, column=0, sticky="w")
 choose_file_button = tk.Button(root, text="Choose File", command=choose_file)
 choose_file_button.grid(row=0, column=1, padx=10, pady=5)
+
+# Create new file button
+create_new_button = tk.Button(root, text="Create New File", command=create_new_file)
+create_new_button.grid(row=0, column=2, padx=10, pady=5)
 
 # URL entry
 url_label = tk.Label(root, text="Enter URL:", padx=10, pady=5)
@@ -111,11 +122,15 @@ url_entry.grid(row=1, column=1, padx=10, pady=5)
 url_entry.bind("<Button-1>", clear_status)
 
 # Add button
-add_button = tk.Button(root, text="Add to Excel", command=add_to_excel)
+add_button = tk.Button(root, text="Create file and Add Data", command=add_to_excel)
 add_button.grid(row=2, column=0, columnspan=2, pady=10)
 
 # Status label
 status_label = tk.Label(root, text="", padx=10, pady=5)
 status_label.grid(row=3, column=0, columnspan=2)
+
+for i in range(3):
+    root.columnconfigure(i, weight=1)
+root.rowconfigure(0, weight=1)
 
 root.mainloop()
