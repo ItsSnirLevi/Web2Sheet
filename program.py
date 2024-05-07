@@ -1,8 +1,6 @@
-import time
 import requests
 import tkinter as tk
 from tkinter import filedialog
-import tkinter.messagebox as messagebox
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
