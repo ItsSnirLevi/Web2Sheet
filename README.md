@@ -1,4 +1,5 @@
-# Web2Sheet
+# Web2Sheet 
+![icon](https://github.com/ItsSnirLevi/Web2Sheet/assets/127433228/8d5ff86f-edd6-4a70-86e0-78da003be980)
 
 Web2Sheet is a Python application designed to scrape car information from the CarWiz website (a platform for buying used cars) and organize it into an Excel file. This project utilizes web scraping techniques to extract details such as car model, engine specifications, and price from individual car listings on CarWiz.
 
