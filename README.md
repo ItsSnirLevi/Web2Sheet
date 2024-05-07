@@ -17,10 +17,10 @@ Web2Sheet is a Python application designed to scrape car information from the Ca
 
 ## Installation
 
-1. Clone the repository to your local machine:
+1. Clone the repository to your local machine:  
 `git clone https://github.com/your-username/web2sheet.git`
 
-2. Install the required Python libraries using pip:
+2. Install the required Python libraries using pip:  
 `pip install requests tk selenium pandas webdriver_manager`
 
 3. Ensure you have Google Chrome installed on your machine, as the project utilizes the Chrome WebDriver.
@@ -33,7 +33,7 @@ Web2Sheet is a Python application designed to scrape car information from the Ca
 3. Choose an existing Excel file or create a new one to store the scraped data.
 4. Enter the URL of a car listing from the CarWiz website.
 5. Click the "Create file and Add Data" button to scrape and add the data to the Excel file.
-6. Monitor the status label for feedback on the scraping process.
+6. Monitor the status label for feedback on the scraping process.  
 **Important: Ensure that the Excel file is closed before attempting to update it with new data; otherwise, it won't work.**
 
 ![image](https://github.com/ItsSnirLevi/Web2Sheet/assets/127433228/085e88a9-30c9-429f-b519-02d5d6a0a8dd)
