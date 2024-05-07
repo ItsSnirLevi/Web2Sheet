@@ -43,3 +43,5 @@ Web2Sheet is a Python application designed to scrape car information from the Ca
 - **Optimization for Speed:** Investigate and implement methods to improve the speed of data scraping and processing to reduce execution time.
 - **Enhanced Feature Collection:** Explore additional features available on the CarWiz website and integrate them into the Excel sheet, providing more comprehensive information about the listed cars.
 - **Excel File Styling:** Implement styling options to enhance the visual presentation of the Excel file, making it more user-friendly and visually appealing. This could include formatting cells, adding colors, and incorporating logos or branding elements.
+
+*_Icon created by afif fudin - Flaticon_
